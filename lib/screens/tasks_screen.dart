@@ -9,7 +9,6 @@ class TasksScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       backgroundColor: Colors.lightBlueAccent,
       body: Column(
@@ -67,26 +66,29 @@ class TasksScreen extends StatelessWidget {
           )
         ],
       ),
-      floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          showModalBottomSheet(
-            context: context,
-            builder: (context) =>
-                SingleChildScrollView(
-                  child: Container(
-                    padding: EdgeInsets.only(
-                        bottom: MediaQuery
-                            .of(context)
-                            .viewInsets
-                            .bottom),
-                    child: AddTasksScreen(),
+      floatingActionButton: Padding(
+        padding: EdgeInsets.only(right: 20),
+        child: FloatingActionButton(
+          onPressed: () {
+            showModalBottomSheet(
+              context: context,
+              builder: (context) =>
+                  SingleChildScrollView(
+                    child: Container(
+                      padding: EdgeInsets.only(
+                          bottom: MediaQuery
+                              .of(context)
+                              .viewInsets
+                              .bottom),
+                      child: AddTasksScreen(),
+                    ),
                   ),
-                ),
-            isScrollControlled: true,
-          );
-        },
-        child: Icon(Icons.add),
-        backgroundColor: Colors.lightBlueAccent,
+              isScrollControlled: true,
+            );
+          },
+          child: Icon(Icons.add),
+          backgroundColor: Colors.lightBlueAccent,
+        ),
       ),
     );
   }
